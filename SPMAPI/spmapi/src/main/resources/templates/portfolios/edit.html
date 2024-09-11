@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Portfolio</title>
+</head>
+<body>
+    <h1>Edit Portfolio</h1>
+    <form th:action="@{/api/portfolios/{id}(id=${portfolio.id})}" th:object="${portfolio}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" />
+        <button type="submit">Update Portfolio</button>
+    </form>
+    <a href="/portfolios">Back to List</a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Portfolio</title>
+</head>
+<body>
+    <h1>Create New Portfolio</h1>
+    <form th:action="@{/api/portfolios}" th:object="${portfolio}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" />
+        <button type="submit">Create Portfolio</button>
+    </form>
+    <a href="/portfolios">Back to List</a>
+</body>
+</html>

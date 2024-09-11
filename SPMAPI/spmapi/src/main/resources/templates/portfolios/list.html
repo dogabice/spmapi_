@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Portfolios</title>
+</head>
+<body>
+    <h1>Portfolios List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="portfolio : ${portfolios}">
+                <td th:text="${portfolio.id}">1</td>
+                <td th:text="${portfolio.name}">portfolio name</td>
+                <td>
+                    <a th:href="@{/portfolios/{id}(id=${portfolio.id})}">View</a>
+                    <a th:href="@{/portfolios/{id}(id=${portfolio.id})}">Edit</a>
+                    <a th:href="@{/portfolios/{id}(id=${portfolio.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/portfolios/create">Create New Portfolio</a>
+</body>
+</html>

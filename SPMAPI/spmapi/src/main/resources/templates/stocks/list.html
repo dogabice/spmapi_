@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stocks</title>
+</head>
+<body>
+    <h1>Stocks List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="stock : ${stocks}">
+                <td th:text="${stock.id}">1</td>
+                <td th:text="${stock.name}">stock name</td>
+                <td th:text="${stock.price}">price</td>
+                <td>
+                    <a th:href="@{/stocks/{id}(id=${stock.id})}">View</a>
+                    <a th:href="@{/stocks/{id}(id=${stock.id})}">Edit</a>
+                    <a th:href="@{/stocks/{id}(id=${stock.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/stocks/create">Create New Stock</a>
+</body>
+</html>
